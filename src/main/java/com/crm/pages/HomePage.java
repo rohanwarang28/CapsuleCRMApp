@@ -35,7 +35,7 @@ public class HomePage extends TestBase{
 	}
 	
 	public PeoplePage clickOnPeopleIcon() throws IOException {
-		TestUtil.clickOn(driver, peopleIcon, 10);
+		TestUtil.clickOn(driver, peopleIcon, 20);
 		//peopleIcon.click();
 		return new PeoplePage();
 	}

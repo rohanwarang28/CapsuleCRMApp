@@ -72,7 +72,9 @@ public class PeoplePage extends TestBase{
 		tagField.sendKeys(tag);
 		addTagBtn.click();
 		
-		phField.sendKeys(phoneNo);
+		//phField.sendKeys(phoneNo);
+		
+		TestUtil.enterText(phField, phoneNo);
 		emailField.sendKeys(email);
 		
 		saveBtn.click();

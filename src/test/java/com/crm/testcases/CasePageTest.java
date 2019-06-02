@@ -52,17 +52,11 @@ public class CasePageTest extends TestBase{
 	public void addCaseTest(String title,String fname,String lname,String jobTitle,String org,String tag,String phno,String email,String casename,String casedesc,String casetag) throws IOException 
 	
 	{
-		
+		asserts=new SoftAssert();
 		casepage.addNewCase(fname,lname,casename,casedesc,casetag);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		TestUtil.waitUntilVisible(driver,"//div[@class='entity-details-title']" , 20);
 		String casenameReflected = driver.findElement(By.xpath("//div[@class='entity-details-title']")).getText();
-		String usernameReflected = driver.findElement(By.id("ember72")).getText();
+		String usernameReflected = driver.findElement(By.xpath("//a[@class='ember-view']")).getText();
 		
 		boolean status = driver.findElement(By.xpath("//span[@class='kase-summary-status-open']")).isDisplayed();
 		

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.crm.Base.TestBase;
+import com.util.TestUtil;
 
 public class LoginPage extends TestBase{
 
@@ -29,9 +30,10 @@ public class LoginPage extends TestBase{
 	
 	public HomePage login(String uname,String pwd) throws IOException {
 		
-		usernameField.sendKeys(uname);
-		passwordField.sendKeys(pwd);
-		
+		//usernameField.sendKeys(uname);
+		TestUtil.enterText(usernameField, uname);
+		//passwordField.sendKeys(pwd);
+		TestUtil.enterText(passwordField, pwd);
 		loginBtn.click();
 		return new HomePage();
 	}

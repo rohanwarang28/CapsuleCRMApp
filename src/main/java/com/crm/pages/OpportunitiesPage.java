@@ -16,11 +16,14 @@ public class OpportunitiesPage extends TestBase{
 	@FindBy(xpath="//button[text()='Add new Milestone']")
 	WebElement addmileBtn;
 	
-	@FindBy(xpath="//label[contains(text(),'Name')]/parent::div/following-sibling::span/input")
+	@FindBy(xpath="//input[@class='form-input-text milestone-modal-name']")
 	WebElement nameField;
 	
 	@FindBy(xpath="//input[@class='form-input-text milestone-modal-probability']")
 	WebElement powField;
+	
+	@FindBy(xpath="//button[text()='Save']")
+	WebElement saveBtn;
 	
 	public OpportunitiesPage() throws IOException {
 		PageFactory.initElements(driver, this);
@@ -30,10 +33,18 @@ public class OpportunitiesPage extends TestBase{
 public boolean addmile() {
 	TestUtil.clickOn(driver, addmileBtn, 10);
 	//addmileBtn.click();
-	TestUtil.waitUntilVisible(driver, "//input[@id='register:firstnameDecorate:firstName']", 3);
-	nameField.sendKeys("John");
+	TestUtil.switchWindows();
+	TestUtil.waitUntilVisible(driver, "//input[@class='form-input-text milestone-modal-name']", 3);
+	int random =(int) (Math. random() * 50 + 1);
+
+	nameField.sendKeys("John"+random);
+	//TestUtil.enterText(nameField, "John");
 	powField.sendKeys("2");
-	return driver.findElement(By.xpath("//button[@class='hyperlink-button milestone-item-edit' and text()='John']")).isDisplayed();
+	//TestUtil.enterText(powField, "2");
+	
+	saveBtn.click();
+	
+	return driver.findElement(By.xpath("//button[@class='hyperlink-button milestone-item-edit' and text()='John"+random+"']")).isDisplayed();
 		
 		
 	}

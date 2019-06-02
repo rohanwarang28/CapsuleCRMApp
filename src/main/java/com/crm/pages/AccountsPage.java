@@ -21,6 +21,15 @@ public class AccountsPage extends TestBase{
 	@FindBy(linkText="Opportunities")
 	WebElement opplink;
 	
+	@FindBy(linkText="Tracks")
+	WebElement trackslink;
+	
+	@FindBy(linkText="Tags")
+	WebElement tagslink;
+	
+	@FindBy(linkText="Integrations")
+	WebElement integrationslink;
+	
 	public AccountsPage() throws IOException {
 		//super();
 		PageFactory.initElements(driver, this);
@@ -51,5 +60,24 @@ public class AccountsPage extends TestBase{
 		
 		opplink.click();
 		return new OpportunitiesPage();
+	}
+	
+	public TracksPage navigateToTracksPage() throws IOException {
+		
+		trackslink.click();
+		return new TracksPage();
+	}
+	
+    public TagsPage navigateToTagsPage() throws IOException {
+		
+		tagslink.click();
+		return new TagsPage();
+	}
+    
+    
+ public IntegrationsPage navigateToIntegrationsPage() throws IOException {
+		
+		integrationslink.click();
+		return new IntegrationsPage();
 	}
 }
